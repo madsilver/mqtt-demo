@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: mqtt-demo
+
+mqtt:
+  broker-url: tcp://localhost:1883
+  client-id: mqtt-demo-client
+  topic: demo/messages
