@@ -55,5 +55,41 @@ Headers: {
     mqtt_receivedQos=0, 
     timestamp=1785327709551
 }
+```
 
+## Publish Flow
+```
+HTTP POST
+     |
+@RestController
+     |
+mqttOutputChannel
+     |
+MqttPahoMessageHandler
+     |
+Mosquitto
+```
+
+```
+HTTP POST
+      |
+MqttController
+      |
+MqttPublisherService
+      |
+mqttOutputChannel
+      |
+MqttPahoMessageHandler
+      |
+Mosquitto
+      |
+MqttPahoMessageDrivenChannelAdapter
+      |
+mqttInputChannel
+      |
+MqttMessageHandler
+```
+
+```sh
+curl -X POST http://localhost:8080/mqtt/publish -d "Hello MQTT"
 ```
